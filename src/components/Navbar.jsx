@@ -14,14 +14,14 @@ function Navbar({links}){
     links.forEach(e => {
         resultHtml.push(
             <NavItem onClick={closeMobileMenu}>
-                <NavLinks exact to={e}>{e}</NavLinks>
+                <NavLinks exact activeClassName="selected" to={e}>{e}</NavLinks>
             </NavItem>
          )
     });
     
     return (
         <>
-        <div>
+        <nav>
             <NavItems className={click ? "aktive" : ""}>
                 {resultHtml}
                 <Button>Contact us</Button>
@@ -33,7 +33,7 @@ function Navbar({links}){
                 <MenuIcon className="menu-icon" />
                 )}
             </MobilMenu>
-        </div>
+        </nav>
         </>
     )
 }
