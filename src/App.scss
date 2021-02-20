@@ -17,7 +17,7 @@ body{
   --paragraph2-size: 17px;
 }
 
-.active {
+.selected {
   margin-right: 25px;
   font-size: 18px;
   line-height: 22px;
@@ -55,6 +55,17 @@ body{
 }
 
 
+.nav{
+  padding-top: 20px;
+  display: block !important;
+}
+
+
+main{
+  padding-top: 100px;
+}
+
+
 footer{
   margin-top: 100px;
     text-align: center;
@@ -71,5 +82,10 @@ footer{
   .row{
     flex-direction: row-reverse;
   }
+
+  // .nav{
+  //   display: block;
+    
+  // }
 
 }
