@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import { Header, Home, Contagion, Prevention, Symptoms } from './components/index';
 import axios from "axios"
 import Footer from './components/Footer'
-
+import { HeaderFixed } from "./components/Styled";
 function App() {
 
   const [navbar, setNavbar] = useState([])
@@ -28,7 +28,10 @@ function App() {
   return (
     <>
     <Router>
-      <Header navbars={navbar} />
+      <HeaderFixed>
+        <Header navbars={navbar} />
+      </HeaderFixed>
+      
       <main>
         <Switch>
             <Route path="/Contagion">
@@ -41,7 +44,7 @@ function App() {
             </Route>
         </Switch>
       </main>
-      <Footer />
+      <Footer links={navbar} />
     </Router>
     </>
   );
