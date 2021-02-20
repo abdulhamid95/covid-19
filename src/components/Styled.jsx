@@ -2,15 +2,11 @@ import styled, {css} from 'styled-components';
 import { NavLink } from "react-router-dom"
 
 
-export const Header = styled.header`
+export const Header = styled.div`
   display: flex;
   justify-content: space-between;
-  margin: 40px auto;
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
-  margin-bottom: 70px;
+  align-items: center;
+  margin: auto;
   @media (min-width: 768px) {
     width: 750px;
   }
@@ -21,7 +17,15 @@ export const Header = styled.header`
     width: 1170px;
   }
 `
-
+export const HeaderFixed = styled.header`
+    padding-top: 20px;
+    z-index:1;
+    position: fixed;
+    width: 100%;
+    border-bottom-color: rgba(0, 0, 0, 0.2);
+    box-shadow: rgb(0 0 0 / 20%) 0px 0px 4px;
+    background-color: #fff;
+`
 
 export const Button = styled.a`
   text-decoration: none;
@@ -32,8 +36,8 @@ export const Button = styled.a`
   border: 2px solid var(--page-color);
   color: var(--page-color);
   display: inline-block;
-  font-size: 18px;
-  line-height: 22px;
+  font-size: 20px;
+  line-height: 30px;
   padding: 13px 32px;
   cursor: pointer;
   transition: .5s;
@@ -85,6 +89,9 @@ export const NavLinks = styled(NavLink)`
   &:hover{
     color: #FF383D;
   }
+  @media(max-width: 770px){
+    margin-right: 15px;
+  }
 `
 
 export const MobilMenu = styled.div`
@@ -108,7 +115,7 @@ export const NavItems = styled.ul`
     width: 100%;
     height: 350px;
     position: absolute;
-    top: 110px;
+    top: 100px;
     left: -100%;
     opacity: 0;
     transition: all 0.5s ease;
@@ -181,7 +188,7 @@ export const Image = styled(Images)`
   ${props => props.overview && css`
     position: absolute;
     left: -110px;
-    width: 140%;
+    width: 130%;
     margin-top: 0px;  
     @media(max-width: 992px){
       position: relative;
@@ -236,11 +243,88 @@ export const Input = styled.input`
   width: 80%;
   padding: 25px 25px;
   margin: auto;
-  width: 50%;
+  width: 100%;
   outline: none;
   border: 1px solid rgba(0, 0, 0, 0);
   color: #758681;
   &:focus{
       box-shadow: 0px 0px 14px rgba(250, 86, 82, 2);
   }
+
+  @media(min-width: 768px){
+    position: relative;  
+    padding: 25px 165px 25px 25px !important;
+  }
+
+`
+
+export const Form = styled.form`
+  position: relative;
+  text-align: center;
+  margin: 30px auto;
+  @media(min-width: 768px){
+    width: 60%;
+  }
+`
+
+export const SendButton = styled(Button)`
+  background-color: var(--page-color);
+  color: white;
+  border: none;
+  padding: 18px 50px;
+  margin-top:20px;
+  &:hover{   
+    color: var(--page-color);
+    background-color: var(--background-color);
+  }
+  @media(min-width: 768px){
+    display: inline;
+    position: absolute;
+    right: 10px;
+    bottom: 5px;
+  }
+
+  /* @media(min-width: 1200px){
+  right: 290px !important;
+
+  }
+  @media (min-width: 992px) {
+    position: absolute;
+    right: 245px;
+    bottom: 10px;
+  } */
+`
+
+export const Flex = styled.div`
+
+  display: block;
+    text-align: center;
+    margin: auto;
+    margin-top: 40px;
+  @media(min-width: 992px){
+    display: flex;
+  justify-content: space-between;
+  margin-top: 80px;
+  }
+`
+
+export const Social = styled.div`
+  padding-top: 20px;
+
+  svg{
+    color: var(--writer-color);
+    font-size: 27px;
+    margin-left: 15px;
+    transition: .2s;
+    &:hover{
+      color: var(--page-color);
+    }
+  }
+
+`
+
+export const FooterP = styled.p`
+  margin: 50px auto 10px;
+  color: var(--paragraf-color);
+  font-size: var(--paragraph-size);
 `
