@@ -1,4 +1,4 @@
-import { H2, ContactSty, Input, Button } from "./Styled";
+import { H2, ContactSty, Input, Form, SendButton } from "./Styled";
 
 
 function Contact(){
@@ -6,10 +6,10 @@ function Contact(){
         <div className="container">
             <ContactSty>
                 <H2>Have Question in mind? <br /> Let us help you</H2> 
-                <form action="/">
-                    <Input />
-                    <Button overview onClick="this.form.submit()">Send</Button>
-                </form>          
+                <Form>
+                    <Input placeholder="snmonydemo@gmail.com" />
+                    <SendButton onClick="this.form.submit()">Send</SendButton>
+                </Form>          
             </ContactSty>
         </div>
     )
