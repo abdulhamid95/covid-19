@@ -13,8 +13,9 @@ export const Home = ({desc}) =>{
     return <HomeComp obj={desc} />
 }
 
-export const Contagion = () =>{
-    return <ContagionComp />
+export const Contagion = ({conta, card}) =>{
+    // console.log(card);
+    return <ContagionComp conta={conta} contacard={card} />
 }
 
 export const Prevention = () =>{

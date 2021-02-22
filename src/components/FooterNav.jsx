@@ -8,8 +8,8 @@ function FooterNav({link}){
     
     const arr = [];
 
-    link.forEach(e =>{
-        arr.push(<NavLinks to={e}>{e}</NavLinks>)
+    link.forEach((e,i) =>{
+        arr.push(<NavLinks to={e} key={i}>{e}</NavLinks>)
     });
 
     return(

@@ -60,9 +60,17 @@ body{
   display: block !important;
 }
 
+.center{
+  text-align: center;
+}
+
 
 main{
   padding-top: 100px;
+
+  .contagion{
+    margin-top: 100px;
+  }
 }
 
 

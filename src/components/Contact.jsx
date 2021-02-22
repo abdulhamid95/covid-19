@@ -8,7 +8,7 @@ function Contact(){
                 <H2>Have Question in mind? <br /> Let us help you</H2> 
                 <Form>
                     <Input placeholder="snmonydemo@gmail.com" />
-                    <SendButton onClick="this.form.submit()">Send</SendButton>
+                    <SendButton>Send</SendButton>
                 </Form>          
             </ContactSty>
         </div>

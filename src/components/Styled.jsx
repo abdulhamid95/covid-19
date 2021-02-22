@@ -175,6 +175,18 @@ export const P = styled.p`
     font-size: var(--paragraph2-size);
     line-height: 215%;
     `}
+    ${props => props.width && css`
+      width:100%;
+      @media(min-width: 768px){
+        width: 70%;
+        margin: auto;
+        margin-bottom: 50px;
+      }
+      @media(min-width: 992px){
+        width: 60%;
+        margin-bottom: 75px;
+      }
+    `}
 `
 
 const Images = ({ alt, src, ...rest}) => {
@@ -270,12 +282,13 @@ export const Form = styled.form`
 export const SendButton = styled(Button)`
   background-color: var(--page-color);
   color: white;
-  border: none;
-  padding: 18px 50px;
+  border: 2px solid rgba(0,0,0,0);
+  padding: 16px 50px;
   margin-top:20px;
   &:hover{   
     color: var(--page-color);
-    background-color: var(--background-color);
+    background-color: white;
+    border: 2px solid var(--page-color);
   }
   @media(min-width: 768px){
     display: inline;
@@ -326,5 +339,34 @@ export const Social = styled.div`
 export const FooterP = styled.p`
   margin: 50px auto 10px;
   color: var(--paragraf-color);
-  font-size: var(--paragraph-size);
+  font-size: 15px;
+`
+
+export const Card = styled.div`
+  box-shadow: 0px 5px 80px rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+  padding: 40px 70px;
+  margin-bottom: 40px;
+  border-bottom: 4px solid transparent;
+
+  &:hover{
+    border-bottom: 4px solid var(--page-color);
+    cursor: pointer;
+  }
+`
+
+export const CardTitle = styled.h3`
+  font-weight: 500;
+  font-size: 23px;
+  line-height: 147%;
+  text-transform: capitalize;
+  color: var(--writer-color);
+`
+
+export const cardParagraph = styled.p`
+  font-size: 13px;
+  line-height: 185%;
+  text-align: center;
+  text-transform: capitalize;
+  color: var(--paragraf-color);
 `

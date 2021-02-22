@@ -11,9 +11,9 @@ function Navbar({links}){
 
     const resultHtml = [];
 
-    links.forEach(e => {
+    links.forEach((e,i) => {
         resultHtml.push(
-            <NavItem onClick={closeMobileMenu}>
+            <NavItem onClick={closeMobileMenu} key={i}>
                 <NavLinks exact activeClassName="selected" to={e}>{e}</NavLinks>
             </NavItem>
          )

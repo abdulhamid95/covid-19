@@ -10,19 +10,26 @@ function App() {
 
   const [navbar, setNavbar] = useState([])
   const [homeDesc, setHomeDesc] = useState([])
+  const [contagion, setContagion] = useState([])
+  const [contagionCard, setContagionCard] = useState([])
 
   useEffect(() => {
     axios.get('https://raw.githubusercontent.com/omergulcicek/bootcamp/master/React/data.json')
       .then(function ({data}) {
         setNavbar(data[0].headerLinks)
         setHomeDesc(data[0].indexPage)
+        setContagion(data[0].contagionPage)
+        setContagionCard(data[0].contagionPage.cards)
         // console.log("sorun yok => ", data)
+
+        //console.log(contagion.cards[0].title)
       })
       .catch(function (error) {
         console.log("sorun var => ", error)
       })
   }, [])
 
+  //console.log(contagionCard);
 
 
   return (
@@ -35,7 +42,7 @@ function App() {
       <main>
         <Switch>
             <Route path="/Contagion">
-              <Contagion  />
+              <Contagion conta={contagion} card={contagionCard} />
             </Route>
             <Route path="/Prevention" component={Prevention} />
             <Route path="/Symptoms" component={Symptoms} />
