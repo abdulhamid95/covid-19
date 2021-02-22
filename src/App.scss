@@ -69,7 +69,11 @@ main{
   padding-top: 100px;
 
   .contagion{
-    margin-top: 100px;
+    margin-top: 70px;
+  }
+
+  .symptoms{
+    margin-top: 70px;
   }
 }
 
@@ -86,6 +90,16 @@ footer{
     margin-top: 50px;
     
   }
+
+  main{
+    .contagion{
+      margin-top: 50px;
+    }
+    .symptoms{
+      margin-top: 50px;
+    }
+  }
+
 
   .row{
     flex-direction: row-reverse;

@@ -18,12 +18,12 @@ export const Contagion = ({conta, card}) =>{
     return <ContagionComp conta={conta} contacard={card} />
 }
 
-export const Prevention = () =>{
-    return <PreventionComp />
+export const Prevention = ({desc}) =>{
+    return <PreventionComp desc={desc} />
 }
 
-export const Symptoms = () =>{
-    return <SymptomsComp />
+export const Symptoms = ({desc}) =>{
+    return <SymptomsComp desc={desc} />
 }
 
 export const Container = (props) => {

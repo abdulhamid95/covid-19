@@ -175,7 +175,7 @@ export const P = styled.p`
     font-size: var(--paragraph2-size);
     line-height: 215%;
     `}
-    ${props => props.width && css`
+    ${props => props.rows && css`
       width:100%;
       @media(min-width: 768px){
         width: 70%;
@@ -363,10 +363,29 @@ export const CardTitle = styled.h3`
   color: var(--writer-color);
 `
 
-export const cardParagraph = styled.p`
+export const CardParagraph = styled.p`
   font-size: 13px;
   line-height: 185%;
   text-align: center;
   text-transform: capitalize;
   color: var(--paragraf-color);
+`
+
+export const CardLi = styled.li`
+
+  margin-bottom: 50px;
+  position: relative;
+  @media(min-width: 776px){
+    text-decoration: none;
+    display: flex;
+    &:nth-of-type(even){
+      display: -webkit-box;
+    display: -ms-flexbox;
+    
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+    -ms-flex-direction: row-reverse;
+     flex-direction: row-reverse;
+    }
+  }
 `

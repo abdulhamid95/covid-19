@@ -17,7 +17,7 @@ function HomeComp({obj}){
                     </OverviewBlog>
                 </div>
                 <div className="col-12 col-lg-6">
-                    <Image src={img1} overview alt="covid19-overview-image" />
+                    <Image src={img1} overview="true" alt="covid19-overview-image" />
                 </div>
             </Container>
         </section>
@@ -33,7 +33,7 @@ function HomeComp({obj}){
                     </OverviewBlog>
                 </div>
                 <div className="col-12 col-lg-6 oder-lg-1">
-                    <Image src={img2} about alt="covid19-overview-image" />
+                    <Image src={img2} about="about" alt="covid19-overview-image" />
                 </div>
             </Container>
         </section>

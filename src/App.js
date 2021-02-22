@@ -12,14 +12,21 @@ function App() {
   const [homeDesc, setHomeDesc] = useState([])
   const [contagion, setContagion] = useState([])
   const [contagionCard, setContagionCard] = useState([])
+  const [symptoms, setSymptoms] = useState([]);
+  const [prevetion, setPrevetion] = useState([]);
+
 
   useEffect(() => {
     axios.get('https://raw.githubusercontent.com/omergulcicek/bootcamp/master/React/data.json')
       .then(function ({data}) {
-        setNavbar(data[0].headerLinks)
-        setHomeDesc(data[0].indexPage)
-        setContagion(data[0].contagionPage)
-        setContagionCard(data[0].contagionPage.cards)
+        setNavbar(data[0].headerLinks);
+        setHomeDesc(data[0].indexPage);
+        setContagion(data[0].contagionPage);
+        setContagionCard(data[0].contagionPage.cards);
+        setSymptoms(data[0].symptompsPage);
+        setPrevetion(data[0].preventionPage);
+        //setSymptoms(data[0])
+
         // console.log("sorun yok => ", data)
 
         //console.log(contagion.cards[0].title)
@@ -44,8 +51,13 @@ function App() {
             <Route path="/Contagion">
               <Contagion conta={contagion} card={contagionCard} />
             </Route>
-            <Route path="/Prevention" component={Prevention} />
-            <Route path="/Symptoms" component={Symptoms} />
+            
+            <Route path="/Symptoms">
+            <Symptoms desc={symptoms} />
+            </Route>
+            <Route path="/Prevention">
+              <Prevention desc={prevetion} />
+            </Route>
             <Route path="/">
               <Home desc={homeDesc} />
             </Route>

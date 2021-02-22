@@ -1,4 +1,4 @@
-import { H2, P, Title, Card, CardTitle, cardParagraph } from "./Styled";
+import { H2, P, Title, Card, CardTitle, CardParagraph } from "./Styled";
 import { Container } from "./index";
 import React, { useState, useEffect } from "react"
 import axios from "axios"
@@ -41,7 +41,7 @@ function ContagionComp({conta, contacard}){
           <img width="100%" src={images[i]} alt=""/>
         </figure>
         <CardTitle>{e.title}</CardTitle>
-        <cardParagraph>{e.description}</cardParagraph>
+        <CardParagraph>{e.description}</CardParagraph>
       </Card>
   </div>
   )
@@ -56,7 +56,7 @@ function ContagionComp({conta, contacard}){
             <div className="center">
               <Title>{conta.title}</Title>
               <H2>{conta.subtitle}</H2>
-              <P width>{conta.description}</P>
+              <P rows="true">{conta.description}</P>
               <div className="row">
               {resultHtml}
               </div>
