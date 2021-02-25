@@ -13,9 +13,9 @@ import Iran from '../assest/images/Iran.svg';
 
 function Map(){
 
-    // const [res, setRes] = useState();
+    const [res, setRes] = useState([]);
 
-    var res = [];
+    // var res = [];
 
     const resultHtml = [];
 
@@ -51,16 +51,24 @@ function Map(){
 
     // const MonyEx = [res.USD, res.EUR, res.CNY, ]
 
-    // useEffect(() => {
-    //     axios.get('https://api.exchangeratesapi.io/latest?base=TRY')
-    //       .then(function ({data}) {
-    //         const exchange = data.rates;
-    //         setRes(exchange);
-    //       })
-    //       .catch(function (error) {
-    //         console.log("sorun var => ", error)
-    //       })
-    //   }, [])
+    useEffect(() => {
+        axios.get('https://coronavirus-19-api.herokuapp.com/countries')
+          .then(function ({data}) {
+            // const countrys = data.country;
+            const arr =[];
+            countries.forEach(({name},i) =>{
+              
+            const country = data.find(country => country.country == countries[i].name);
+            arr.push(country.cases)
+              
+          })
+          setRes(arr)
+            // setRes(country.cases);
+          })
+          .catch(function (error) {
+            console.log("sorun var => ", error)
+          })
+      }, [])
 
       var today = new Date();
         var dd = String(today.getDate()).padStart(2, '0');
@@ -70,38 +78,40 @@ function Map(){
         today = 'Today: ' + dd + '/' + mm + '/' + yyyy;
       
         console.log(today)
-      fetch("https://coronavirus-19-api.herokuapp.com/countries")
-      .then(response => response.json())
-      .then(data => {
+      // fetch("https://coronavirus-19-api.herokuapp.com/countries")
+      // .then(response => response.json())
+      // .then(data => {
+      //   var arr = [];
+      //   countries.forEach(({name},i) =>{
+      //     const country = data.find(country => country.country == countries[i].name);
+      //     arr.push(parseInt(country.cases))
+      //     // console.log(country.cases)
+      //     // setRes(country.cases)
+      //   });
+      //   setRes(arr)
 
-        countries.forEach(({name},i) =>{
-          const country = data.find(country => country.country == countries[i].name);
-          res.push(parseInt(country.cases))
-          // console.log(country.cases)
-          // setRes(country.cases)
-        })
 
-        // for(var i =0 ; i<countries.length; i++){
-        //   const country = data.find(country => country.country == "USA");
-        //   // res.push(country.cases)
+      // //   // for(var i =0 ; i<countries.length; i++){
+      // //   //   const country = data.find(country => country.country == "USA");
+      // //   //   // res.push(country.cases)
           
-        //   res.push(country)
-        // }
-          // console.log(country.todayCases);
-      })
+      // //   //   res.push(country)
+      // //   // }
+      // //     // console.log(country.todayCases);
+      // })
 
-      console.log(res[0])
+      console.log(res)
 
       countries.forEach(({country, name}, i) =>{
         resultHtml.push(
           <Countries key={i}>
-          <div className="left">
-          <img src={countries[i].country} alt=""/>
-          <p>{countries[i].name}</p>
-        </div>
-        <div className="right">
-          <span>{res}</span>
-        </div>
+            <div className="left">
+            <img src={countries[i].country} alt=""/>
+            <p>{countries[i].name}</p>
+          </div>
+          <div className="right">
+            <span>{res[i]}</span>
+          </div>
         </Countries>
         )
       })
@@ -122,7 +132,7 @@ function Map(){
 {resultHtml}
                     
                 </ExchangeCard>
-                {res}
+                
             </div>
         </Container>
     );
