@@ -9,6 +9,8 @@ import China from '../assest/images/China.svg';
 import Spain from '../assest/images/Spain.svg';
 import Germany from '../assest/images/Germany.svg';
 import Iran from '../assest/images/Iran.svg';
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
 function Map(){
@@ -123,6 +125,7 @@ function Map(){
                 <figure>
                     <img width="100%" src={MapImg} alt=""/>
                 </figure>
+                <FontAwesomeIcon icon={faSearch} />
             </div>
             <div className="col-12 col-lg-4">
                 <ExchangeCard>
