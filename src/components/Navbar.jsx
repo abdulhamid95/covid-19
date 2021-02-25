@@ -24,7 +24,7 @@ function Navbar({links}){
         <nav>
             <NavItems className={click ? "aktive" : ""}>
                 {resultHtml}
-                <Button>Contact us</Button>
+                <Button href="#footer">Contact us</Button>
             </NavItems>
             <MobilMenu onClick={handleClick}>
                 {click ? (

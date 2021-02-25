@@ -1,5 +1,5 @@
-import { H2, CardTitle, P, Title, CardLi } from "./Styled";
-import { Container } from "./index";
+import { H2, H3, P, Title, CardLi, PreveCard, Circle } from "./Styled";
+import Map from './Map'
 import prevetion1 from '../assest/images/prevetion1.svg';
 import prevetion2 from '../assest/images/prevetion2.svg';
 import prevetion3 from '../assest/images/prevetion3.svg';
@@ -16,15 +16,17 @@ function PreventionComp({desc}){
         <CardLi key={e.id}>
             
                 <div className="col-12 col-md-6">
-                <CardTitle>{e.title}</CardTitle>
-                <P>{e.description}</P>
+                    <PreveCard>
+                        <Circle>{e.id}</Circle>
+                        <H3>{e.title}</H3>
+                        <P ellipsis>{e.description}</P>
+                    </PreveCard>
                 </div>
                 <div className="col-12 col-md-6">
                     <figure>
                         <img width="100%" src={PrevImg[i]} alt=""/>
                     </figure>
-                </div>
-            
+                </div>            
         </CardLi>
 
         )
@@ -42,7 +44,7 @@ function PreventionComp({desc}){
 {arr}
 </div>
             </div>
-            
+            <Map />
         </section>
     );
 }

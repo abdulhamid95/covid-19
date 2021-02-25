@@ -1,6 +1,7 @@
 
 body{
   font-family: sans-serif;
+  background: linear-gradient(360deg, rgba(255, 241, 241, 0.5) 0%, rgba(255, 241, 241, 0) 108.69%);
 }
 
 :root {
@@ -47,6 +48,7 @@ body{
   z-index: 1;
   align-content: center;
   padding-left: 0px;
+  margin-top: 0px;
 }  
 
 .about{
@@ -62,6 +64,7 @@ body{
 
 .center{
   text-align: center;
+  margin-bottom: 50px;
 }
 
 
@@ -74,6 +77,10 @@ main{
 
   .symptoms{
     margin-top: 70px;
+  }
+
+  .prevetion{
+    margin: 70px auto;
   }
 }
 
@@ -97,6 +104,9 @@ footer{
     }
     .symptoms{
       margin-top: 50px;
+    }
+    .prevetion{
+      margin: 50px auto;
     }
   }
 

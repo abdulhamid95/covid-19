@@ -89,17 +89,15 @@ export const NavLinks = styled(NavLink)`
   &:hover{
     color: #FF383D;
   }
-  @media(max-width: 770px){
+  @media(max-width: 768px){
     margin-right: 15px;
   }
 `
 
 export const MobilMenu = styled.div`
   display: none;
-
-  @media(max-width: 770px){
+  @media(max-width: 768px){
     display: inline-block;
-
     .menu-icon {
     width: 45px;
     height: 45px;
@@ -109,13 +107,13 @@ export const MobilMenu = styled.div`
 
 export const NavItems = styled.ul`
   padding: 0px;
-  @media (max-width: 770px) {
+  @media (max-width: 768px) {
     background-color: #fff;
     display: flex;
     width: 100%;
     height: 350px;
     position: absolute;
-    top: 100px;
+    top: 83px;
     left: -100%;
     opacity: 0;
     transition: all 0.5s ease;
@@ -128,7 +126,7 @@ export const NavItems = styled.ul`
 
 export const NavItem = styled.li`
   display: inline;
-  @media (max-width: 770px) {
+  @media (max-width: 768px) {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -165,6 +163,15 @@ export const H2 = styled.h2`
     margin-top: 10px;
 `
 
+export const H3 = styled.h3`
+  font-size: var(--title2-size);
+  line-height: 50px;
+  font-weight: 700;
+  color: var(--writer-color);
+  margin-bottom: 10px;
+  margin-top: 10px;
+`
+
 export const P = styled.p`
     color: var(--paragraf-color);
     font-size: var(--paragraph-size);
@@ -186,6 +193,14 @@ export const P = styled.p`
         width: 60%;
         margin-bottom: 75px;
       }
+    `}
+
+    ${props => props.ellipsis && css`
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 6; /* number of lines to show */
+      -webkit-box-orient: vertical;
     `}
 `
 
@@ -369,23 +384,93 @@ export const CardParagraph = styled.p`
   text-align: center;
   text-transform: capitalize;
   color: var(--paragraf-color);
+  overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 2; /* number of lines to show */
+   -webkit-box-orient: vertical;
 `
 
 export const CardLi = styled.li`
-
+  text-decoration: none;
   margin-bottom: 50px;
   position: relative;
-  @media(min-width: 776px){
-    text-decoration: none;
+  list-style-type: none;
+  @media(min-width: 768px){   
     display: flex;
     &:nth-of-type(even){
       display: -webkit-box;
-    display: -ms-flexbox;
-    
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: reverse;
-    -ms-flex-direction: row-reverse;
-     flex-direction: row-reverse;
+      display: -ms-flexbox;  
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+      flex-direction: row-reverse;
     }
+  }
+`
+
+export const PreveCard = styled.div`
+  position: relative;
+  text-align: center;
+  margin-top: 50px 0px;
+
+  @media(min-width: 768px){
+    text-align: left;
+
+  }
+
+  @media(min-width: 992px){
+    margin-left: 75px;
+    margin-top: 100px;
+  }
+`
+
+export const Circle = styled.span`
+  font-weight: bold;
+  font-size: 35px;
+  line-height: 145%;
+  color: var(--page-color);
+  border-radius: 50%;
+  padding: 5px 10px;
+  background-color: rgba(250, 86, 82, 0.15);
+  @media(min-width: 768px){
+    position: absolute;
+    top: 0px;
+    left: -90px;
+  } 
+`
+
+export const ExchangeCard = styled.div`
+  background: linear-gradient(360deg, #FFFBFB -79.45%, #FDFDFD 105.35%);
+  box-shadow: 0px 7px 95px rgba(243, 95, 95, 0.07);
+  border-radius: 0px;
+  padding: 20px;
+`
+
+export const Countries = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  padding: 5px 20px;
+  cursor: pointer;
+  p{
+      color: var(--writer-color);
+      font-weight: 700;
+      margin: 0px 10px;
+      display: inline-block;
+  }
+
+  span{
+    color: var(--writer-color);
+      font-weight: 700;
+      margin: auto 10px;
+  }
+
+  &:hover{
+      box-shadow: 0px 0px 14px rgba(250, 86, 82, 2);
+  }
+
+  .right{
+    padding-top: 5px;
   }
 `

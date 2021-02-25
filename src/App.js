@@ -6,6 +6,8 @@ import { Header, Home, Contagion, Prevention, Symptoms } from './components/inde
 import axios from "axios"
 import Footer from './components/Footer'
 import { HeaderFixed } from "./components/Styled";
+
+
 function App() {
 
   const [navbar, setNavbar] = useState([])
@@ -37,6 +39,8 @@ function App() {
   }, [])
 
   //console.log(contagionCard);
+
+
 
 
   return (

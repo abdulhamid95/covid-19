@@ -4,7 +4,7 @@ import FooterNav from './FooterNav'
 function Footer({links}){
     return(
         <>
-        <footer>
+        <footer id="footer">
             <Contact />
             <FooterNav link={links} />
         </footer>
