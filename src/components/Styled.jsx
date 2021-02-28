@@ -470,7 +470,51 @@ export const Countries = styled.div`
       box-shadow: 0px 0px 14px rgba(250, 86, 82, 2);
   }
 
+  .flags{
+    width: 25%;
+  }
+
   .right{
     padding-top: 5px;
+  }
+`
+
+export const Search = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  svg{
+    color: var(--writer-color);
+    font-size: 35px;
+    background-color: white;
+    padding: 5px;
+    width: 50px;
+    position: relative;
+    box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.2);
+    border-radius: 5px 0px 0px 5px;
+    &:hover{
+      color: var(--page-color);
+
+    }
+  }
+
+  .country{
+    position: absolute;
+    top: 0px;
+    display: inline-block;
+    width: 0px;
+    transition: 1s;
+    outline: none;
+    border: none;
+    border-radius: 0px 5px 5px 0px;
+    height: 35px;
+    box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.2);
+    @media(max-width: 768px){
+      width: 100px;
+    }
+
+    &:focus{
+      width: 150px;
+    }
   }
 `

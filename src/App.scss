@@ -82,6 +82,29 @@ main{
   .prevetion{
     margin: 70px auto;
   }
+
+  .map_image{
+    position: relative;
+  }
+  
+  .search{
+    .country{
+      order: -1;
+    }
+  }
+
+
+  .searchico{
+    transition: .5s;
+    outline: none;
+    border: none;
+    &:hover{
+      & + .country{
+        width: 150px;
+        
+      }
+    }
+  }
 }
 
 
