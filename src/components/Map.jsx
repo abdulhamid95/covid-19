@@ -62,7 +62,7 @@ function Map(){
           let countryCount = covid.find(covid => covid.country.toLowerCase() == input.value.toLowerCase());
            setFlag(country?.file_url);
            setCountryName(country?.name);
-          setCount(countryCount?.cases)
+          setCount(countryCount);
           input.value = '';
       }
 

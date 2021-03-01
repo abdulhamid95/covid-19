@@ -502,7 +502,11 @@ export const Overlay = styled.div`
 
     h3{
       color: var(--page-color);
+      @media(max-width: 776px){
+        font-size: 12;
+      }
     }
+    
     img{
       width: 35%;
     }
@@ -515,6 +519,10 @@ export const Overlay = styled.div`
     span{
       display: block;
       margin-top: 15px;
+      @media(max-width: 776px){
+        font-size: 10;
+        margin-top: 10px;
+      }
     }
     .close{
       color: #16aeca;

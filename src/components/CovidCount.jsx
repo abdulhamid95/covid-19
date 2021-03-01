@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState, useEffect } from "react"
 import { Countries, Overlay, Title, H3 } from "./Styled";
 import { Container } from "./index";
-
+import Country from "./Country";
 
 function CovidCount({flag, countryName, count}){
     const [res, setRes] = useState([]);
@@ -57,57 +57,7 @@ function CovidCount({flag, countryName, count}){
               <span>{e.cases}</span>
             </div>
           </Countries>
-          <Overlay id={countries[i]}>
-            <figure>
-              <img src={resp[i]} className="" />
-            </figure>
-            <H3 className="title">This is Covid-19 cases report of {countries[i]}</H3>
-            <Container>
-              <div className="col-12 col-md-6 col-lg-3">
-                <span className="cases">Cases: </span>
-                <Title>{e.cases}</Title>
-              </div>
-              <div className="col-12 col-md-6 col-lg-3">
-                <span className="cases">Today Cases: </span>
-                <Title>{e.todayCases}</Title>
-              </div>
-              <div className="col-12 col-md-6 col-lg-3">
-                <span className="cases">Deaths: </span>
-                <Title>{e.deaths}</Title>
-              </div>
-              <div className="col-12 col-md-6 col-lg-3">
-                <span className="cases">Recovered: </span>
-                <Title small>{e.recovered}</Title>
-              </div>
-              </Container>
-              <Container>
-              <div className="col-12 col-md-6 col-lg-3">
-                <span className="cases">Active: </span>
-                <Title>{e.active}</Title>
-              </div>
-              <div className="col-12 col-md-6 col-lg-3">
-                <span className="cases">Critical: </span>
-                <Title>{e.critical}</Title>
-              </div>
-              <div className="col-12 col-md-6 col-lg-3">
-                <span className="cases">Cases Per One Million: </span>
-                <Title>{e.casesPerOneMillion}</Title>
-              </div>
-              <div className="col-12 col-md-6 col-lg-3">
-                <span className="cases">Deaths Per One Million: </span>
-                <Title>{e.deathsPerOneMillion}</Title>
-              </div>
-              <div className="col-12 col-md-6">
-                <span className="cases">Total Tests: </span>
-                <Title>{e.totalTests}</Title>
-              </div>
-              <div className="col-12 col-md-6">
-                <span className="cases">Tests Per One Million: </span>
-                <Title>{e.testsPerOneMillion}</Title>
-              </div>
-            </Container>
-            <a href="#page" className="close">X</a>
-          </Overlay>
+         <Country e={e} src={resp[i]} id={countries[i]} />
         </>
         )
       })
@@ -122,15 +72,16 @@ function CovidCount({flag, countryName, count}){
         return(
           <>
           {resultHtml}
-          <Countries>
+          <Countries href={'/Prevention#' + countryName}>
             <div className="left">
             <img src={flag} className="flags" alt=""/>
             <p>{countryName}</p>
           </div>
           <div className="right">
-            <span>{count}</span>
+            <span>{count.cases}</span>
           </div>
         </Countries>
+        <Country e={count} src={flag} id={countryName} />
           </>
         )
       }
