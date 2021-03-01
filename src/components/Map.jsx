@@ -12,23 +12,26 @@ function capitaliz(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
 
-
 function Map(){
 
-    const [res, setRes] = useState([])
-    const [city, setCity] =useState([]);
 
-      var today = new Date();
-        var dd = String(today.getDate()).padStart(2, '0');
-        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-        var yyyy = today.getFullYear();
+    const [city, setCity] =useState([]);
+    const [flag, setFlag] = useState();
+    const [countryName, setCountryName] = useState();
+    const [covid, setCovid] = useState();
+    const [count, setCount] = useState();
+
+      let today = new Date();
+        let dd = String(today.getDate()).padStart(2, '0');
+        let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        let yyyy = today.getFullYear();
 
         today = 'Today: ' + dd + '/' + mm + '/' + yyyy;
 
         useEffect(() => {
           axios.get('https://abdulhamid95.github.io/flags_json/db.json')
             .then(function ({data}) {
-               const arr =[];
+              const arr =[];
               data.forEach(({name, file_url}, i)=> {
                 arr.push({name, file_url})
               })
@@ -39,13 +42,30 @@ function Map(){
             })
         }, []);
 
+        useEffect(() => {
+          axios.get('https://coronavirus-19-api.herokuapp.com/countries')
+            .then(function ({data}) {
+              const array =[];
+              data.forEach((e) =>{          
+                array.push(e);              
+              });
+              setCovid(array);   
+            })
+            .catch(function (error) {
+              console.log("sorun var => ", error)
+            })
+        }, []);
+        
       const cta = () => {
         const input = document.getElementById("country");
           let country = city.find(city => city.name.toLowerCase() == input.value.toLowerCase()); 
-          console.log(country?.file_url)
+          let countryCount = covid.find(covid => covid.country.toLowerCase() == input.value.toLowerCase());
+           setFlag(country?.file_url);
+           setCountryName(country?.name);
+          setCount(countryCount?.cases)
           input.value = '';
       }
-       
+
 
     return(
         <Container>
@@ -66,7 +86,7 @@ function Map(){
                 <ExchangeCard>
                     <H3>Live Raports</H3>
                     <CardTitle>{today}</CardTitle>
-                    <CovidCount />
+                    <CovidCount flag={flag} countryName={countryName} count={count} />
                 </ExchangeCard>               
             </div>
         </Container>

@@ -4,7 +4,7 @@ import { Countries } from "./Styled";
 
 
 
-function CovidCount({city}){
+function CovidCount({flag, countryName, count}){
     const [res, setRes] = useState([]);
     const [resp, setResp] = useState([]);
     const[cites, setCites] =useState([]);
@@ -12,7 +12,7 @@ function CovidCount({city}){
 
     const resultHtml = [];
 
-    const countries = ["USA", "Italy", "China", "Spain", "Germany", "Iran", "Syria"];
+    const countries = ["USA", "Italy", "China", "Spain", "Germany", "Iran"];
 
 
   useEffect(() => {
@@ -25,10 +25,10 @@ function CovidCount({city}){
           array.push(countryname.file_url);  
                    
         });
-        const country = data.find(name => name.name == city);  
+        // const country = data.find(name => name.name == city);  
         setResp(array);
-        setCites(country)
-        // setRes(country.cases);
+        // setCites(country)
+        // // setRes(country.cases);
         
       })
       .catch(function (error) {
@@ -52,8 +52,8 @@ function CovidCount({city}){
             console.log("sorun var => ", error)
           })
       }, []);
-
-
+// console.log(flag)
+// console.log(countryName)
       res.forEach((e, i) =>{
         resultHtml.push(
           <Countries key={i}>
@@ -68,7 +68,7 @@ function CovidCount({city}){
         )
       })
 
-      if(city == null){
+      if(countryName == null){
         return(
           <>
           {resultHtml}
@@ -78,7 +78,15 @@ function CovidCount({city}){
         return(
           <>
           {resultHtml}
-          <p>{city}</p>
+          <Countries>
+            <div className="left">
+            <img src={flag} className="flags" alt=""/>
+            <p>{countryName}</p>
+          </div>
+          <div className="right">
+            <span>{count}</span>
+          </div>
+        </Countries>
           </>
         )
       }
