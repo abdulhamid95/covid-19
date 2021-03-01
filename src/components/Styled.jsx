@@ -447,7 +447,7 @@ export const ExchangeCard = styled.div`
   padding: 20px;
 `
 
-export const Countries = styled.div`
+export const Countries = styled.a`
   display: flex;
   justify-content: space-between;
   margin-top: 15px;
@@ -468,6 +468,7 @@ export const Countries = styled.div`
 
   &:hover{
       box-shadow: 0px 0px 14px rgba(250, 86, 82, 2);
+      text-decoration: none;
   }
 
   .flags{
@@ -477,6 +478,54 @@ export const Countries = styled.div`
   .right{
     padding-top: 5px;
   }
+`
+
+export const Overlay = styled.div`
+    background: rgba(0, 0, 0, 0.9);
+    position: fixed;
+    right: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100vh;
+    z-index: 30;
+    overflow: hidden;
+    padding: 3% 10%;
+    opacity: 0;
+    transition: all 1s ease;
+    margin-top: -100vh;
+    text-align: center;
+
+    &:target {
+    opacity: 1;
+    margin-top: 0;
+    } 
+
+    h3{
+      color: var(--page-color);
+    }
+    img{
+      width: 35%;
+    }
+    .cases{
+      font-size: var(--alert-size);
+      font-weight: 700;
+      line-height: var(--alert-height);
+      color: var(--writer-color);
+    }
+    span{
+      display: block;
+      margin-top: 15px;
+    }
+    .close{
+      color: #16aeca;
+      position: absolute;
+      top: 4%;
+      right: 10%;
+      font-size: 30px;
+      font-weight: bold;
+      width: auto;
+    }
+
 `
 
 export const Search = styled.div`
@@ -492,6 +541,7 @@ export const Search = styled.div`
     position: relative;
     box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.2);
     border-radius: 5px 0px 0px 5px;
+    cursor: pointer;
     &:hover{
       color: var(--page-color);
 
@@ -514,7 +564,7 @@ export const Search = styled.div`
     }
 
     &:focus{
-      width: 150px;
+      width: 170px;
     }
   }
 `

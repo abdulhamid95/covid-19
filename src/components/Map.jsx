@@ -56,7 +56,7 @@ function Map(){
             })
         }, []);
         
-      const cta = () => {
+      const search = () => {
         const input = document.getElementById("country");
           let country = city.find(city => city.name.toLowerCase() == input.value.toLowerCase()); 
           let countryCount = covid.find(covid => covid.country.toLowerCase() == input.value.toLowerCase());
@@ -75,10 +75,10 @@ function Map(){
                 </figure>
                 <Search>
                   <div className="search">
-                      <a className="searchico" onClick={cta}>
+                      <a className="searchico" onClick={search}>
                         <FontAwesomeIcon icon={faSearch} />
                       </a>
-                      <input type="text" id="country" className="country"/>
+                      <input placeholder="Enter Country Name" type="text" id="country" className="country"/>
                   </div>
                 </Search>
             </div>
