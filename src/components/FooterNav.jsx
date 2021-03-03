@@ -3,7 +3,7 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {NavLinks, Flex, Social, FooterP } from './Styled'
 import { faFacebook, faTwitter, faGithub, faYoutube } from '@fortawesome/free-brands-svg-icons'
-
+import { faSpinn } from "@fortawesome/free-brands-svg-icons";
 
 function FooterNav({link}){
     
