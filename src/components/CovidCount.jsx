@@ -12,7 +12,7 @@ function CovidCount({flag, countryName, count}){
 
     const resultHtml = [];
 
-    const countries = ["USA", "Italy", "China", "Spain", "Germany", "Iran"];
+    const countries = ["USA", "Italy", "China", "Spain", "Germany", "Iran", "UAE", "Syria"];
 
 
   useEffect(() => {
