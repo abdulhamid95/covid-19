@@ -8,6 +8,7 @@ import Footer from './components/Footer'
 import { HeaderFixed } from "./components/Styled";
 
 
+
 function App() {
 
   const [navbar, setNavbar] = useState([])
